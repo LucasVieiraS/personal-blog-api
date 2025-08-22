@@ -1,0 +1,12 @@
+﻿spring:
+  mvc:
+    servlet:
+      path: /api/v1
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springboot-template
+    username: postgres
+    password: 
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
