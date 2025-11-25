@@ -11,7 +11,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/health")
 public class HealthController {
-
     @GetMapping
     public ResponseEntity<?> health() {
         return ResponseEntity.ok(Map.of("status", "UP", "timestamp", Instant.now().toString()));
