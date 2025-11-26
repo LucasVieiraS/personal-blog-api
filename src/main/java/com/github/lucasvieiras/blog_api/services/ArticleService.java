@@ -11,6 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Collection;
 import java.util.UUID;
 
 @Service
@@ -52,5 +53,29 @@ public class ArticleService {
         Article article = articleRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         articleRepository.delete(article);
+    }
+
+    public Page<Article> findByTagValues(Collection<String> values, boolean matchAll, Pageable pageable) {
+        if (values == null || values.isEmpty()) {
+            return Page.empty(pageable);
+        }
+
+        if (matchAll) {
+            return articleRepository.findByAllTagValues(values, values.size(), pageable);
+        }
+
+        return articleRepository.findByAnyTagValues(values, pageable);
+    }
+
+    public Page<Article> findByCategoryValues(Collection<String> values, boolean matchAll, Pageable pageable) {
+        if (values == null || values.isEmpty()) {
+            return Page.empty(pageable);
+        }
+
+        if (matchAll) {
+            return articleRepository.findByAllCategoryValues(values, values.size(), pageable);
+        }
+        
+        return articleRepository.findByAnyCategoryValues(values, pageable);
     }
 }

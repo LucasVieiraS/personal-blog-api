@@ -72,4 +72,34 @@ public class ArticleController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/filter/tags")
+    public ResponseEntity<Page<ArticleDTO>> findArticlesByTags(
+            @RequestParam List<String> values,
+            @RequestParam(defaultValue = "any") String match,
+            Pageable pageable
+    ) {
+        boolean matchAll = "all".equalsIgnoreCase(match);
+        Page<Article> articlesPage = articleService.findByTagValues(values, matchAll, pageable);
+
+        List<ArticleDTO> articleDTOList = articleDTOFactory.create(articlesPage.getContent());
+        Page<ArticleDTO> articlesDTOPage = new PageImpl<>(articleDTOList, pageable, articlesPage.getTotalElements());
+
+        return new ResponseEntity<>(articlesDTOPage, HttpStatus.OK);
+    }
+
+    @GetMapping("/filter/categories")
+    public ResponseEntity<Page<ArticleDTO>> findArticlesByCategories(
+            @RequestParam List<String> values,
+            @RequestParam(defaultValue = "any") String match,
+            Pageable pageable
+    ) {
+        boolean matchAll = "all".equalsIgnoreCase(match);
+        Page<Article> articlesPage = articleService.findByCategoryValues(values, matchAll, pageable);
+
+        List<ArticleDTO> articleDTOList = articleDTOFactory.create(articlesPage.getContent());
+        Page<ArticleDTO> articlesDTOPage = new PageImpl<>(articleDTOList, pageable, articlesPage.getTotalElements());
+
+        return new ResponseEntity<>(articlesDTOPage, HttpStatus.OK);
+    }
 }
