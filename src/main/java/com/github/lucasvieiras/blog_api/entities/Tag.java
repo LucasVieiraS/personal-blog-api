@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tag")
+@Table(name = "tags")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
