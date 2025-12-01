@@ -1,4 +1,4 @@
-package com.github.lucasvieiras.blog_api.dto.requests;
+package com.github.lucasvieiras.blog_api.dto;
 
 import java.util.UUID;
 

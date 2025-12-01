@@ -1,7 +1,7 @@
 package com.github.lucasvieiras.blog_api.controllers;
 
 import com.github.lucasvieiras.blog_api.dto.factories.TagDTOFactory;
-import com.github.lucasvieiras.blog_api.dto.requests.TagDTO;
+import com.github.lucasvieiras.blog_api.dto.TagDTO;
 import com.github.lucasvieiras.blog_api.dto.requests.tag.TagRequest;
 import com.github.lucasvieiras.blog_api.entities.Tag;
 import com.github.lucasvieiras.blog_api.services.TagService;
