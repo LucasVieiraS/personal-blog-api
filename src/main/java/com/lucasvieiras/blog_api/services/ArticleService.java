@@ -6,6 +6,7 @@ import com.lucasvieiras.blog_api.entities.Article;
 import com.lucasvieiras.blog_api.exceptions.ConflictException;
 import com.lucasvieiras.blog_api.exceptions.ResourceNotFoundException;
 import com.lucasvieiras.blog_api.repositories.ArticleRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import java.util.UUID;
 public class ArticleService {
     private final ArticleRepository articleRepository;
 
+    @Transactional
     public Article createArticle(CreateArticleRequest request) {
         if (articleRepository.findByTitle(request.title()).isPresent()) {
             throw new ConflictException("Article already exists");
@@ -35,12 +37,20 @@ public class ArticleService {
         return articleRepository.save(article);
     }
 
+    @Transactional
     public Article updateArticle(ArticleRequest request, UUID id) {
             Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Article not found with id: " + id));
 
         if (request.title() != null) article.setTitle(request.title());
 
         return articleRepository.save(article);
+    }
+
+    @Transactional
+    public void deleteArticle(UUID id) {
+        Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Article not found with id: " + id));
+
+        articleRepository.delete(article);
     }
 
     public Page<Article> findAllArticles(Pageable pageable) {
@@ -53,12 +63,6 @@ public class ArticleService {
 
     public Article findByTitle(String title) {
         return articleRepository.findByTitle(title).orElseThrow(() -> new ResourceNotFoundException("Article not found with title: " + title));
-    }
-
-    public void deleteArticle(UUID id) {
-        Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Article not found with id: " + id));
-
-        articleRepository.delete(article);
     }
 
     public Page<Article> findByTagValues(Collection<String> values, boolean matchAll, Pageable pageable) {

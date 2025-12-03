@@ -6,6 +6,7 @@ import com.lucasvieiras.blog_api.exceptions.BadRequestException;
 import com.lucasvieiras.blog_api.exceptions.ConflictException;
 import com.lucasvieiras.blog_api.exceptions.ResourceNotFoundException;
 import com.lucasvieiras.blog_api.repositories.CategoryRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -39,6 +40,17 @@ public class CategoryService {
         return categoryRepository.save(Category);
     }
 
+    @Transactional
+    public void deleteCategory(UUID id) {
+        Category category = categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + id));
+
+        if (!category.getArticles().isEmpty()) {
+            throw new BadRequestException("Cannot delete category that has articles assigned");
+        }
+
+        categoryRepository.delete(category);
+    }
+
     public Page<Category> findAllCategories(Pageable pageable) {
         return categoryRepository.findAll(pageable);
     }
@@ -49,15 +61,5 @@ public class CategoryService {
 
     public Category findCategoryByTitle(String title) {
         return categoryRepository.findByValue(title).orElseThrow(() -> new ResourceNotFoundException("Category not found with title: " + title));
-    }
-
-    public void deleteCategory(UUID id) {
-        Category category = categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + id));
-
-        if (!category.getArticles().isEmpty()) {
-            throw new BadRequestException("Cannot delete category that has articles assigned");
-        }
-
-        categoryRepository.delete(category);
     }
 }

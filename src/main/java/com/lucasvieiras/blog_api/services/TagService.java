@@ -6,6 +6,7 @@ import com.lucasvieiras.blog_api.exceptions.BadRequestException;
 import com.lucasvieiras.blog_api.exceptions.ConflictException;
 import com.lucasvieiras.blog_api.exceptions.ResourceNotFoundException;
 import com.lucasvieiras.blog_api.repositories.TagRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -52,6 +53,7 @@ public class TagService {
         return tagRepository.findByValue(title).orElseThrow(() -> new ResourceNotFoundException("Tag not found with title: " + title));
     }
 
+    @Transactional
     public void deleteTag(UUID id) {
         Tag tag = tagRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Tag not found with id: " + id));
 
