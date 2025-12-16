@@ -15,7 +15,8 @@ public class ArticleDTOFactory {
                 article.getSubtitle(),
                 article.getTags(),
                 article.getCategories(),
-                article.getContentMarkdown()
+                article.getContentMarkdown(),
+                article.getAuthor()
         );
     }
 

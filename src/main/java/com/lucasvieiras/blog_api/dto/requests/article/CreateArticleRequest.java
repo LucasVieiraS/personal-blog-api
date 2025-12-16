@@ -23,7 +23,10 @@ public record CreateArticleRequest(
 
         @NotBlank(message = "Content markdown is required.")
         @Min(value = 5, message = "Content markdown length must be greater than 5")
-        String contentMarkdown
+        String contentMarkdown,
+
+        @NotBlank(message = "Author id is required.")
+        String authorId
 ) {
 
 

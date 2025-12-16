@@ -39,7 +39,7 @@ public class ArticleService {
 
     @Transactional
     public Article updateArticle(ArticleRequest request, UUID id) {
-            Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Article not found with id: " + id));
+        Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Article not found with id: " + id));
 
         if (request.title() != null) article.setTitle(request.title());
 
