@@ -1,9 +1,9 @@
 package com.lucasvieiras.blog_api.controllers;
 
-import com.lucasvieiras.blog_api.dto.factories.ArticleDTOFactory;
-import com.lucasvieiras.blog_api.dto.ArticleDTO;
-import com.lucasvieiras.blog_api.dto.requests.article.ArticleRequest;
-import com.lucasvieiras.blog_api.dto.requests.article.CreateArticleRequest;
+import com.lucasvieiras.blog_api.dtos.factories.ArticleDTOFactory;
+import com.lucasvieiras.blog_api.dtos.ArticleDTO;
+import com.lucasvieiras.blog_api.dtos.requests.article.ArticleRequest;
+import com.lucasvieiras.blog_api.dtos.requests.article.CreateArticleRequest;
 import com.lucasvieiras.blog_api.entities.Article;
 import com.lucasvieiras.blog_api.services.ArticleService;
 import jakarta.validation.Valid;

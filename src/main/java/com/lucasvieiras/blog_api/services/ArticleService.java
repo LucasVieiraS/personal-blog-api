@@ -1,7 +1,7 @@
 package com.lucasvieiras.blog_api.services;
 
-import com.lucasvieiras.blog_api.dto.requests.article.ArticleRequest;
-import com.lucasvieiras.blog_api.dto.requests.article.CreateArticleRequest;
+import com.lucasvieiras.blog_api.dtos.requests.article.ArticleRequest;
+import com.lucasvieiras.blog_api.dtos.requests.article.CreateArticleRequest;
 import com.lucasvieiras.blog_api.entities.Article;
 import com.lucasvieiras.blog_api.entities.User;
 import com.lucasvieiras.blog_api.exceptions.ConflictException;
@@ -9,9 +9,7 @@ import com.lucasvieiras.blog_api.exceptions.ResourceNotFoundException;
 import com.lucasvieiras.blog_api.repositories.ArticleRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

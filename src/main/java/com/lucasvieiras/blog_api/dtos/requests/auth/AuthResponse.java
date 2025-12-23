@@ -1,4 +1,4 @@
-package com.lucasvieiras.blog_api.dto.requests.auth;
+package com.lucasvieiras.blog_api.dtos.requests.auth;
 
 public record AuthResponse(
         String token,

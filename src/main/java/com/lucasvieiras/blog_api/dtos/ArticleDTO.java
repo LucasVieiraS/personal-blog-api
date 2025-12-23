@@ -1,4 +1,4 @@
-package com.lucasvieiras.blog_api.dto;
+package com.lucasvieiras.blog_api.dtos;
 
 import com.lucasvieiras.blog_api.entities.Category;
 import com.lucasvieiras.blog_api.entities.Tag;

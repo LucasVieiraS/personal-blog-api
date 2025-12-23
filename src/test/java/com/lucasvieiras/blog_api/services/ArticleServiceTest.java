@@ -1,6 +1,6 @@
 package com.lucasvieiras.blog_api.services;
 
-import com.lucasvieiras.blog_api.dto.requests.article.CreateArticleRequest;
+import com.lucasvieiras.blog_api.dtos.requests.article.CreateArticleRequest;
 import com.lucasvieiras.blog_api.entities.Article;
 import com.lucasvieiras.blog_api.entities.User;
 import com.lucasvieiras.blog_api.exceptions.ConflictException;

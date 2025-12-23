@@ -1,6 +1,6 @@
 package com.lucasvieiras.blog_api.services;
 
-import com.lucasvieiras.blog_api.dto.requests.category.CategoryRequest;
+import com.lucasvieiras.blog_api.dtos.requests.category.CategoryRequest;
 import com.lucasvieiras.blog_api.entities.Category;
 import com.lucasvieiras.blog_api.exceptions.BadRequestException;
 import com.lucasvieiras.blog_api.exceptions.ConflictException;
@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
 

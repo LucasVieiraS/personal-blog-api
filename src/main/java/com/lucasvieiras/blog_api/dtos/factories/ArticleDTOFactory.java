@@ -1,6 +1,6 @@
-package com.lucasvieiras.blog_api.dto.factories;
+package com.lucasvieiras.blog_api.dtos.factories;
 
-import com.lucasvieiras.blog_api.dto.ArticleDTO;
+import com.lucasvieiras.blog_api.dtos.ArticleDTO;
 import com.lucasvieiras.blog_api.entities.Article;
 import org.springframework.stereotype.Component;
 

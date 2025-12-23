@@ -1,8 +1,8 @@
 package com.lucasvieiras.blog_api.services;
 
-import com.lucasvieiras.blog_api.dto.requests.auth.AuthResponse;
-import com.lucasvieiras.blog_api.dto.requests.auth.LoginRequest;
-import com.lucasvieiras.blog_api.dto.requests.auth.RegisterRequest;
+import com.lucasvieiras.blog_api.dtos.requests.auth.AuthResponse;
+import com.lucasvieiras.blog_api.dtos.requests.auth.LoginRequest;
+import com.lucasvieiras.blog_api.dtos.requests.auth.RegisterRequest;
 import com.lucasvieiras.blog_api.entities.User;
 import com.lucasvieiras.blog_api.enums.Role;
 import com.lucasvieiras.blog_api.exceptions.ConflictException;

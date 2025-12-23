@@ -1,8 +1,8 @@
 package com.lucasvieiras.blog_api.controllers;
 
-import com.lucasvieiras.blog_api.dto.factories.CategoryDTOFactory;
-import com.lucasvieiras.blog_api.dto.CategoryDTO;
-import com.lucasvieiras.blog_api.dto.requests.category.CategoryRequest;
+import com.lucasvieiras.blog_api.dtos.factories.CategoryDTOFactory;
+import com.lucasvieiras.blog_api.dtos.CategoryDTO;
+import com.lucasvieiras.blog_api.dtos.requests.category.CategoryRequest;
 import com.lucasvieiras.blog_api.entities.Category;
 import com.lucasvieiras.blog_api.services.CategoryService;
 import jakarta.validation.Valid;

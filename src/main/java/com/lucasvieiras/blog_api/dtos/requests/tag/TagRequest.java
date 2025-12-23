@@ -1,4 +1,4 @@
-package com.lucasvieiras.blog_api.dto.requests.tag;
+package com.lucasvieiras.blog_api.dtos.requests.tag;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -1,8 +1,8 @@
 package com.lucasvieiras.blog_api.controllers;
 
-import com.lucasvieiras.blog_api.dto.factories.TagDTOFactory;
-import com.lucasvieiras.blog_api.dto.TagDTO;
-import com.lucasvieiras.blog_api.dto.requests.tag.TagRequest;
+import com.lucasvieiras.blog_api.dtos.factories.TagDTOFactory;
+import com.lucasvieiras.blog_api.dtos.TagDTO;
+import com.lucasvieiras.blog_api.dtos.requests.tag.TagRequest;
 import com.lucasvieiras.blog_api.entities.Tag;
 import com.lucasvieiras.blog_api.services.TagService;
 import jakarta.validation.Valid;

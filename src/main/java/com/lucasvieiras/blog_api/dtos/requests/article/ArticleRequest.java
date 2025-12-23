@@ -1,4 +1,4 @@
-package com.lucasvieiras.blog_api.dto.requests.article;
+package com.lucasvieiras.blog_api.dtos.requests.article;
 
 import jakarta.annotation.Nullable;
 
